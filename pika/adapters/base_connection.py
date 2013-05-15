@@ -84,6 +84,7 @@ class BaseConnection(connection.Connection):
 
         """
         super(BaseConnection, self).close(reply_code, reply_text)
+        self._adapter_disconnect()
         self._handle_ioloop_stop()
 
     def remove_timeout(self, timeout_id):
